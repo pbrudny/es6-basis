@@ -1,5 +1,5 @@
-var GIPHY_API_URL = 'http://api.giphy.com'
-var GIPHY_PUB_KEY = 'dc6zaTOxFJmzC'
+const GIPHY_API_URL = 'http://api.giphy.com'
+const GIPHY_PUB_KEY = 'dc6zaTOxFJmzC'
 
 App = React.createClass({
     getInitialState() {
@@ -10,15 +10,15 @@ App = React.createClass({
       };
     },
 
-    getGif: function(searchingText) {
+    getGif: searchingText => {
         return new Promise(
-            function(resolve, reject) {
+            (resolve, reject) => {
                 const url = GIPHY_API_URL + '/v1/gifs/random?api_key=' + GIPHY_PUB_KEY + '&tag=' + searchingText;
                 const xhr = new XMLHttpRequest();
-                xhr.onload = function() {
+                xhr.onload = () => {
                     if (xhr.status === 200) {
-                        var data = JSON.parse(xhr.responseText).data;
-                        var gif = {
+                        const data = JSON.parse(xhr.responseText).data;
+                        const gif = {
                             url: data.fixed_width_downsampled_url,
                             sourceUrl: data.url
                         };
@@ -27,29 +27,27 @@ App = React.createClass({
                         reject(new Error(xhr.statusText));
                     }
                 };
-                xhr.onerror = function() {
-                    reject(new Error(`XMLHttpRequest Error: ${xhr.statusText}`));
-                };
+                xhr.onerror = () => reject(new Error(`XMLHttpRequest Error: ${xhr.statusText}`));
                 xhr.open('GET', url);
                 xhr.send();
             }
         );
     },
 
-    handleSearch: function(searchingText) {  
+    handleSearch: function(searchingText) {
         this.setState({
             loading: true  
         });
-        this.getGif(searchingText).then(function(gif) {
+        this.getGif(searchingText).then(gif => {
             this.setState({
                 loading: false,
                 gif: gif,
                 searchingText: searchingText
             });
-        }.bind(this));
+        });
     },
    render: function () {
-       var styles = {
+       const styles = {
            margin: '0 auto',
            textAlign: 'center',
            width: '90%'
