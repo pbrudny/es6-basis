@@ -1,5 +1,5 @@
 const GIPHY_API_URL = 'http://api.giphy.com'
-const GIPHY_PUB_KEY = 'dc6zaTOxFJmzC'
+const GIPHY_PUB_KEY = 'dc6zaTOxFJmzCzzz'
 
 App = React.createClass({
     getInitialState() {
@@ -38,12 +38,16 @@ App = React.createClass({
         this.setState({
             loading: true  
         });
-        this.getGif(searchingText).then(gif => {
+        this.getGif(searchingText)
+            .then(gif => {
             this.setState({
                 loading: false,
                 gif: gif,
                 searchingText: searchingText
             });
+        }).catch(err => {
+            console.log('Błąd: ', err);
+            throw err;
         });
     },
    render: function () {
