@@ -1,5 +1,5 @@
 const GIPHY_API_URL = 'http://api.giphy.com'
-const GIPHY_PUB_KEY = 'dc6zaTOxFJmzCzzz'
+const GIPHY_PUB_KEY = 'dc6zaTOxFJmzC'
 
 App = React.createClass({
     getInitialState() {
