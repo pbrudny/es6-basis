@@ -1,5 +1,9 @@
-Controls = React.createClass({
-    render: () => {
+class Controls extends React.Component{
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
         return (
             <nav className="controls">
                 <a href="#" className="button" id="start">Start</a>
@@ -10,4 +14,4 @@ Controls = React.createClass({
             </nav>
         )
     }
-});
+}

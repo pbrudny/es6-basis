@@ -1,5 +1,5 @@
-Timer = React.createClass({
-    render: () => {
+class Timer extends React.Component {
+    render() {
         return (
             <div className="timer">
                 <Controls />
@@ -7,4 +7,4 @@ Timer = React.createClass({
             </div>
         )
     }
-});
+}
