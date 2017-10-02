@@ -1,15 +1,7 @@
-App = React.createClass({
-    getInitialState() {
-        return {
-            running: false
-        };
-    },
-    render: () => {
+class App extends React.Component {
+    render() {
         return (
-            <div className="timerApp">
-                <Timer />
-                <Results />
-            </div>
+            <h1>Siemka</h1>
         )
     }
-});
+}
