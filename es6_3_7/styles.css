@@ -1,0 +1,41 @@
+.timer {
+    display: block;
+    border: solid 1px;
+    width: 20%;
+    margin: 0 auto;
+    background-color: grey;
+    text-align: center;
+    padding: 10px;
+}
+
+.timer a {
+    border: 1px solid;
+    text-decoration: none;
+    color: white;
+    padding: 2px;
+}
+
+.timer a:hover {
+    text-decoration: none;
+    color: darkgrey;
+}
+
+.results {
+    background-color: aliceblue;
+    margin: 20px 40%;
+    list-style: none;
+    text-align: left;
+    border: solid;
+}
+
+.results li {
+    font-size: 2em;
+    padding-left: 20px;
+}
+
+.stopwatch {
+    text-align: center;
+    margin: 0 auto;
+    color: pink;
+    font-size: 3em;
+}

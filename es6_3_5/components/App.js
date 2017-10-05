@@ -34,13 +34,14 @@ App = React.createClass({
         );
     },
 
-    handleSearch: function(searchingText) {
+    handleSearch: searchingText => {
+        const self = this;
         this.setState({
             loading: true  
         });
         this.getGif(searchingText)
             .then(gif => {
-            this.setState({
+            self.setState({
                 loading: false,
                 gif: gif,
                 searchingText: searchingText
