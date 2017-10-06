@@ -1,0 +1,35 @@
+.searchProfile {
+    display: block;
+    margin: 5% 35%;
+    width: 20%;
+    padding: 2em;
+}
+
+.searchForm {
+    padding: 1em;
+    border: dotted 1px lightgray;
+}
+
+.usersList {
+    margin-top: 1em;
+}
+
+.userItem {
+    padding: 1em;
+    border: solid 1px lightgray;
+    margin-bottom: 1em;
+    background-color: whitesmoke;
+}
+
+.userItem img {
+    border: dotted 2px lightgray;
+    padding: 2px;
+    margin-right: 2em;
+}
+
+.userItem a {
+    margin-top: 0.3em;
+    margin-right: 30%;
+    color: cornflowerblue;
+    display: inline-block;
+}

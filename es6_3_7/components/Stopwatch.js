@@ -10,7 +10,7 @@ class Stopwatch extends React.Component {
             },
             results: []
         };
-        this.start = this.start.bind(this);
+        // this.start = this.start.bind(this);
         this.stop = this.stop.bind(this);
         this.save = this.save.bind(this);
         this.reset = this.reset.bind(this);
@@ -27,12 +27,12 @@ class Stopwatch extends React.Component {
         });
     }
 
-    start() {
+    start = () => {
         if (!this.state.running) {
-            this.state.running = true;
+            this.setState({running: true});
             this.state.watch = setInterval(() => this.step(), 10);
         }
-    }
+    };
 
     stop() {
         this.state.running = false;
@@ -41,7 +41,7 @@ class Stopwatch extends React.Component {
 
     save() {
         this.setState({
-            results: [...this.state.results, this.format(this.state.times)]
+            results: [...this.state.results, format(this.state.times)]
         });
     }
 
@@ -82,23 +82,23 @@ class Stopwatch extends React.Component {
                         <a href="#" className="button" id="clearList" onClick={this.clearList}>Clear list</a>
                     </nav>
                     <div className="stopwatch">
-                        {this.format(this.state.times)}
+                        {format(this.state.times)}
                     </div>
                 </div>
                 <Results results={this.state.results}/>
             </div>
         )
     }
-
-    pad0(value) {
-        let result = value.toString();
-        if (result.length < 2) {
-            result = '0' + result;
-        }
-        return result;
-    }
-
-    format(times) {
-        return `${this.pad0(times.minutes)}:${this.pad0(times.seconds)}:${this.pad0(Math.floor(times.miliseconds))}`;
-    }
 }
+
+const pad0 = value => {
+    let result = value.toString();
+    if (result.length < 2) {
+        result = '0' + result;
+    }
+    return result;
+};
+
+const format = times => {
+    return `${pad0(times.minutes)}:${pad0(times.seconds)}:${pad0(Math.floor(times.miliseconds))}`;
+};
